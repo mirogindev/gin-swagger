@@ -1,4 +1,4 @@
-module github.com/swaggo/gin-swagger
+module github.com/mirogindev/gin-swagger
 
 go 1.15
 

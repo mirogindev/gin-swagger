@@ -11,8 +11,8 @@ import (
 	"github.com/swaggo/swag"
 
 	"github.com/gin-gonic/gin"
+	"github.com/mirogindev/gin-swagger/swaggerFiles"
 	"github.com/stretchr/testify/assert"
-	"github.com/swaggo/gin-swagger/swaggerFiles"
 )
 
 type mockedSwag struct{}
