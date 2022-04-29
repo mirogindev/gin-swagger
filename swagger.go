@@ -1,14 +1,12 @@
 package ginSwagger
 
 import (
+	"golang.org/x/net/webdav"
 	"html/template"
 	"net/http"
 	"os"
 	"path/filepath"
 	"regexp"
-	"sync"
-
-	"golang.org/x/net/webdav"
 
 	"github.com/gin-gonic/gin"
 	"github.com/swaggo/swag"
@@ -117,7 +115,7 @@ func WrapHandler(handler *webdav.Handler, options ...func(*Config)) gin.HandlerF
 
 // CustomWrapHandler wraps `http.Handler` into `gin.HandlerFunc`.
 func CustomWrapHandler(config *Config, handler *webdav.Handler) gin.HandlerFunc {
-	var once sync.Once
+	//var once sync.Once
 
 	if config.InstanceName == "" {
 		config.InstanceName = swag.Name
@@ -148,9 +146,8 @@ func CustomWrapHandler(config *Config, handler *webdav.Handler) gin.HandlerFunc 
 		}
 
 		path := matches[2]
-		once.Do(func() {
-			handler.Prefix = matches[1]
-		})
+
+		handler.Prefix = matches[1]
 
 		if config.URLFunc != nil {
 			//Set dynamic url
