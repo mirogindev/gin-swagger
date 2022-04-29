@@ -223,7 +223,7 @@ const swaggerIndexTpl = `<!-- HTML for static distribution bundle build -->
   <meta charset="UTF-8">
   <title>{{.Title}}</title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Source+Code+Pro:300,600|Titillium+Web:400,600,700" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="./swagger-ui.css" >
+  <link rel="stylesheet" type="text/css" href="./static/swagger-ui.css" >
   <link rel="icon" type="image/png" href="./favicon-32x32.png" sizes="32x32" />
   <link rel="icon" type="image/png" href="./favicon-16x16.png" sizes="16x16" />
   <style>
@@ -285,8 +285,8 @@ const swaggerIndexTpl = `<!-- HTML for static distribution bundle build -->
 
 <div id="swagger-ui"></div>
 
-<script src="./swagger-ui-bundle.js"> </script>
-<script src="./swagger-ui-standalone-preset.js"> </script>
+<script src="./static/swagger-ui-bundle.js"> </script>
+<script src="./static/swagger-ui-standalone-preset.js"> </script>
 <script>
 window.onload = function() {
   // Build a system
