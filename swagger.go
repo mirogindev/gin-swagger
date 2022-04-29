@@ -31,6 +31,7 @@ type Config struct {
 	DocExpansion             string
 	InstanceName             string
 	Title                    string
+	URLFunc                  func(ctx *gin.Context) string
 	DefaultModelsExpandDepth int
 	DeepLinking              bool
 	PersistAuthorization     bool
@@ -150,6 +151,11 @@ func CustomWrapHandler(config *Config, handler *webdav.Handler) gin.HandlerFunc 
 		once.Do(func() {
 			handler.Prefix = matches[1]
 		})
+
+		if config.URLFunc != nil {
+			//Set dynamic url
+			config.URL = config.URLFunc(ctx)
+		}
 
 		switch filepath.Ext(path) {
 		case ".html":
